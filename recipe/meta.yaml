@@ -10,7 +10,7 @@ source:
   sha256: 13f08a0b649c7afa804fa0e85678d693fd6069dd394c9b9e7d41973d74a3b5d3
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
   script: |
     LDFLAGS=$LDFLAGS \
