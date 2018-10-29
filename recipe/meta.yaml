@@ -1,5 +1,5 @@
 {% set name = "xapian-core" %}
-{% set version = "1.4.7" %}
+{% set version = "1.4.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://oligarchy.co.uk/xapian/{{ version }}/xapian-core-{{ version }}.tar.xz
-  sha256: 13f08a0b649c7afa804fa0e85678d693fd6069dd394c9b9e7d41973d74a3b5d3
+  sha256: da6003eced95206d7e9496c07f7f0cee07d0461c5d9d30946a8d160b03414814
 
 build:
-  number: 1001
+  number: 1000
   skip: True  # [win]
   script: |
     LDFLAGS=$LDFLAGS \
