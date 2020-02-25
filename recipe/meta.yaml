@@ -1,5 +1,5 @@
 {% set name = "xapian-core" %}
-{% set version = "1.4.14" %}
+{% set version = "1.4.15" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://oligarchy.co.uk/xapian/{{ version }}/xapian-core-{{ version }}.tar.xz
-  sha256: 975a7ac018c9d34a15cc94a3ecc883204403469f748907e5c4c64d0aec2e4949
+  sha256: b168e95918a01e014fb6a6cbce26e535f80da4d4791bfa5a0e0051fcb6f950ea
 
 build:
   number: 0
-  skip: True  # [win]
+  skip: true  # [win]
   script: |
     LDFLAGS=$LDFLAGS \
     ./configure \
@@ -21,8 +21,7 @@ build:
     make && make install
     rm -rf $PREFIX/share/doc/xapian-core
 
-  run_exports:
-    {{ pin_subpackage('xapian-core', max_pin='x.x.x') }}
+  run_exports: {{ pin_subpackage('xapian-core', max_pin='x.x.x') }}
 
 requirements:
   build:
@@ -32,8 +31,7 @@ requirements:
     - zlib
 
 test:
-  commands:
-    xapian-config --version
+  commands: xapian-config --version
 
 about:
   home: http://xapian.org
