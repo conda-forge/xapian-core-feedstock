@@ -32,7 +32,7 @@ requirements:
     - zlib
 
 test:
-  commands: xapian-config --version
+  commands: xapian-config --cxxflags --ltlibs  # required by lang bindings
 
 about:
   home: http://xapian.org
