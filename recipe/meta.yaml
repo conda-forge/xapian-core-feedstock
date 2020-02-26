@@ -19,7 +19,7 @@ build:
     CXXFLAGS=-I$PREFIX/include \
     --prefix=$PREFIX
 
-    make && make install
+    make && make install prefix=$PREFIX
     rm -rf $PREFIX/share/doc/xapian-core
 
   run_exports: {{ pin_subpackage('xapian-core', max_pin='x.x.x') }}
