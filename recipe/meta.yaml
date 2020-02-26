@@ -32,7 +32,9 @@ requirements:
     - zlib
 
 test:
-  commands: xapian-config --cxxflags --ltlibs  # required by lang bindings
+  commands: |
+    LD_LIBRARY_PATH=$PREFIX/lib:$LD_LIBRARY_PATH \
+    xapian-config --cxxflags --ltlibs  # command used by language bindings
 
 about:
   home: http://xapian.org
