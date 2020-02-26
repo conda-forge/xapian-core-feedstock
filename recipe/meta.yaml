@@ -10,11 +10,12 @@ source:
   sha256: b168e95918a01e014fb6a6cbce26e535f80da4d4791bfa5a0e0051fcb6f950ea
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
   script: |
     LDFLAGS=$LDFLAGS \
     ./configure \
+    --enable-static \
     CXXFLAGS=-I$PREFIX/include \
     --prefix=$PREFIX
 
