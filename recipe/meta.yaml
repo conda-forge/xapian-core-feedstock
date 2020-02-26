@@ -32,9 +32,16 @@ requirements:
     - zlib
 
 test:
-  commands: |
-    LD_LIBRARY_PATH=$PREFIX/lib:$LD_LIBRARY_PATH \
-    xapian-config --cxxflags --ltlibs  # command used by language bindings
+  requires:
+    - libtool
+  commands:
+    - test -f ${PREFIX}/lib/libxapian.a
+    - test -f ${PREFIX}/lib/libxapian.la
+    - test -f ${PREFIX}/lib/libxapian.so # [linux]
+    - test -f ${PREFIX}/lib/libxapian.dylib # [osx]
+    - |
+      LD_LIBRARY_PATH=$PREFIX/lib:$LD_LIBRARY_PATH \
+      xapian-config --cxxflags --ltlibs  # command used by language bindings
 
 about:
   home: http://xapian.org
