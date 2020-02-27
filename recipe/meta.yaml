@@ -2,7 +2,7 @@
 {% set version = "1.4.15" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
@@ -16,32 +16,26 @@ build:
     LDFLAGS=$LDFLAGS \
     ./configure \
     --enable-static \
-    CXXFLAGS=-I$PREFIX/include \
-    --prefix=$PREFIX
+    --enable-shared \
+    --disable-documentation \
+    --prefix=$PREFIX \
+    CXXFLAGS=-I$PREFIX/include
 
     make && make install prefix=$PREFIX
     rm -rf $PREFIX/share/doc/xapian-core
 
-  run_exports: {{ pin_subpackage('xapian-core', max_pin='x.x.x') }}
-
 requirements:
   build:
     - {{ compiler('cxx') }}
-
   host:
     - zlib
 
 test:
-  requires:
-    - libtool
   commands:
     - test -f ${PREFIX}/lib/libxapian.a
-    - test -f ${PREFIX}/lib/libxapian.la
     - test -f ${PREFIX}/lib/libxapian.so # [linux]
     - test -f ${PREFIX}/lib/libxapian.dylib # [osx]
-    - |
-      LD_LIBRARY_PATH=$PREFIX/lib:$LD_LIBRARY_PATH \
-      xapian-config --cxxflags --ltlibs  # command used by language bindings
+    - xapian-config --cxxflags --libs  # command used by language bindings
 
 about:
   home: http://xapian.org
