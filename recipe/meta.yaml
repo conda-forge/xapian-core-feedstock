@@ -34,8 +34,8 @@ requirements:
 test:
   commands:
     - test -f ${PREFIX}/lib/libxapian.a
-    - test -f ${PREFIX}/lib/libxapian.so # [linux]
-    - test -f ${PREFIX}/lib/libxapian.dylib # [osx]
+    - test -f ${PREFIX}/lib/libxapian.so  # [linux]
+    - test -f ${PREFIX}/lib/libxapian.dylib  # [osx]
     - xapian-config --cxxflags --libs  # command used by language bindings
 
 about:
