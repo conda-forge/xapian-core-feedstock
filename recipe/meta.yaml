@@ -21,7 +21,8 @@ build:
     --prefix=$PREFIX \
     CXXFLAGS=-I$PREFIX/include
 
-    make && make install prefix=$PREFIX
+    make -j ${CPU_COUNT}
+    make install prefix=$PREFIX
     rm -rf $PREFIX/share/doc/xapian-core
 
 requirements:
