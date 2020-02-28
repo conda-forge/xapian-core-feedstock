@@ -10,7 +10,7 @@ source:
   sha256: b168e95918a01e014fb6a6cbce26e535f80da4d4791bfa5a0e0051fcb6f950ea
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
   script: |
     LDFLAGS=$LDFLAGS \
@@ -24,6 +24,8 @@ build:
     make -j ${CPU_COUNT}
     make install prefix=$PREFIX
     rm -rf $PREFIX/share/doc/xapian-core
+  run_exports:
+    - {{ pin_subpackage('xapian-core', exact=True) }}
 
 requirements:
   build:
