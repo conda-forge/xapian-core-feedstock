@@ -1,11 +1,11 @@
-About xapian-core
-=================
+About xapian-core-feedstock
+===========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/xapian-core-feedstock/blob/main/LICENSE.txt)
 
 Home: http://xapian.org
 
 Package license: GPL-2.0-or-later
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/xapian-core-feedstock/blob/main/LICENSE.txt)
 
 Summary: Xapian is an Open Source Search Engine Library, written in C++.
 
