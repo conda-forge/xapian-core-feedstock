@@ -1,5 +1,5 @@
 {% set name = "xapian-core" %}
-{% set version = "1.5.0" %}
+{% set version = "1.5.2" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://oligarchy.co.uk/xapian/{{ version }}/xapian-core-{{ version }}.tar.xz
-  sha256: f3707a45e2f690366b8835731a088c5d59a445a78b8d36f85bf7b1c03c6c5292
+  sha256: bf1842f3dd79750e4b265a2346433a8640849e6a1a28470e32edcde9d616e37f
 
 build:
   number: 0
